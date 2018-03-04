@@ -3,4 +3,38 @@
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-<p>Salutare</p>
+<div class="container">
+        <div class="row">
+            <% for(var i=0;i<items.length;i++){ %>
+    
+            <div class="col s12 m3">
+                <a class="modal-trigger" href="#modal<%=i%>">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="<%= items[i]["profile_image"] %>">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title"><%= items[i]["display_name"] %></span>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <!-- Modal Structure -->
+    <div id="modal<%=i%>" class="modal">
+            <div class="modal-content">
+              <h4><%= items[i]["display_name"] %></h4>
+              <p>A bunch of text <%=i%></p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a>
+            </div>
+          </div>
+            <% } %>
+        </div>
+    </div>
+    
+    <script>
+    $(document).ready(function(){
+        $('.modal').modal();
+      });
+    </script>
