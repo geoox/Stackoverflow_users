@@ -1,15 +1,60 @@
+<!--Materialize dependencies-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<!--FAVICON-->
+<link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/6AMietCWSXysmPDEiIEzXoJP2HzXYNbDHx83l42JqnX350YlyBGmwk7ithVCTIM2fbM=w300-rw">
+
+<!--Stylesheets-->
+<style>
+body{
+    background-color: white;
+    background:linear-gradient(to bottom right,white,grey,grey,grey,#f58233);
+}
+
+h2{
+    margin-top: 3%;
+}
+
+.container{
+    margin-top:5%;
+}
+
+#header{
+    text-align: center;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card-title{
+    color:black;
+}
+
+.card-title:hover{
+    color:#f58233;
+}
+
+.modal-content{
+    text-align: center;
+}
+
+
+</style>
+
+<div id="header">
+
+</div>
 
 <div class="container">
     <div class="row">
         <% for(var i=0;i<items.length;i++){ %>
 
-        <div class="col s12 l3">
+        <div class="col s6 l3">
             <a class="modal-trigger" href="#modal<%=i%>">
-            <div class="card">
+            <div class="card hoverable">
                 <div class="card-image">
                     <img src="<%= items[i]["profile_image"] %>">
                 </div>
@@ -19,17 +64,21 @@
             </div>
             </a>
         </div>
+
+
+
+
         <!-- Modal Structure -->
-<div id="modal<%=i%>" class="modal">
+    <div id="modal<%=i%>" class="modal">
         <div class="modal-content">
           <h4><%= items[i]["display_name"] %></h4>
-
+          <br>
           <img src="<%= items[i]["profile_image"] %>">
-          <br>
+          <br><br>
           <span class="element">Location: <%= items[i]["location"]%></span>
-          <br>
+          <br><br>
           <span class="element">Age: <%= items[i]["age"]%></span>
-
+          <br><br>
           <div class="row element" id="badges">
             <div class="col s3"></div>
             <div class="col s2"><img src="https://png.icons8.com/color/50/000000/medal2.png"></div>
@@ -52,7 +101,7 @@
       </div>
         <% } %>
     </div>
-</div>
+    </div>
 
 <script>
 $(document).ready(function(){
