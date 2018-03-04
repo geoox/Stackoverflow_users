@@ -13,7 +13,12 @@ app.get("/",function(req,res){
 		else{
 			var results=JSON.parse(body);
 			var items=results["items"];
-			res.render("home.ejs",{items: items});
+			res.render("index.ejs",{items: items});
 		}
     })
 })
+
+
+app.listen(3000,function(){
+	console.log("Server has started...");
+});
